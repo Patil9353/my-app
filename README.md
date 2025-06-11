@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CRM React App
 
 This project is a CRM web application built with React.js, Redux Toolkit, React Router v6, and Tailwind CSS.
@@ -27,3 +28,7 @@ This project is a CRM web application built with React.js, Redux Toolkit, React 
 npm install
 # or
 yarn
+=======
+# my-app
+A simple CRM (Customer Relationship Management) application built with React and styled with Tailwind CSS.
+>>>>>>> f48c446fc0fb7b086b272dfbe258c79089fad34c
