@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+    // App.js
+    import React from 'react';
+    import { Routes, Route, Navigate } from 'react-router-dom';
+    import Header from './components/Header';
+    import PrivateRoute from './components/PrivateRoute';
+    import Login from './features/auth/Login'; // Make sure the path is correct
+    import Dashboard from './features/dashboard/Dashboard';
+    import ProductManager from './features/products/ProductManager';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+    export default function App() {
+      return (
+        <div className="min-h-screen bg-gray-50 flex flex-col">
+          <Header />
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/products"
+              element={
+                <PrivateRoute>
+                  <ProductManager />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </div>
+      );
+    }
+    
